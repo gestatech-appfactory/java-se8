@@ -32,6 +32,9 @@ public class StringMatcher {
      * @return true or false
      */
     public boolean isIntersection(String inputString) {
+        // \w  word character, short for [a-zA-Z_0-9] and (intersection)
+        // [^b] except b.
+        // X* finds no or several letter X
         return inputString.matches("([\\w&&[^b]])*");
     }
 
@@ -40,7 +43,19 @@ public class StringMatcher {
      * @param inputString The input of String type
      * @return true or false
      */
-    public boolean isLessThenThreeHundred(String inputString) {
-        return inputString.matches("[^0-9]*[12]?[0-9]{1,2}[^0-9]*");
+    public boolean isLessThanThreeHundred(String inputString) {
+        // [^0-9] Any character except figures from 0 to 9
+
+        // X* finds no or several letter X
+
+        // [12] match the figure 1 or 2.
+
+        // ? Occurs no or one times, ? is short for {0,1}.
+
+        // {X,Y} Occurs between X and Y times. after a quantifier makes it a reluctant quantifier.
+        // It tries to find the smallest match. This makes the regular expression stop at the first match.
+        return inputString.matches("[^0-9]*[12]?[0-9]{1,2}[^\\s|^\\w]*") ||
+                // \D A non-digit, short for [^0-9]
+                inputString.matches("\\D*[12]?[0-9]{1,2}[^\\s|^\\w]*");
     }
 }

@@ -64,11 +64,13 @@ class StringMatcherTest {
 
     @Test
     void shouldBeLessThenThreeHundred() {
-        assertTrue(stringMatcher.isLessThenThreeHundred("288"));
-        assertFalse(stringMatcher.isLessThenThreeHundred("3288"));
-        assertFalse(stringMatcher.isLessThenThreeHundred("328 8"));
-        assertTrue(stringMatcher.isLessThenThreeHundred("1"));
-        assertTrue(stringMatcher.isLessThenThreeHundred("99"));
-        assertFalse(stringMatcher.isLessThenThreeHundred("300"));
+        assertTrue(stringMatcher.isLessThanThreeHundred("288"));
+        assertFalse(stringMatcher.isLessThanThreeHundred("288 "));
+        assertFalse(stringMatcher.isLessThanThreeHundred("288Z"));
+        assertFalse(stringMatcher.isLessThanThreeHundred("3288"));
+        assertFalse(stringMatcher.isLessThanThreeHundred("328 8"));
+        assertTrue(stringMatcher.isLessThanThreeHundred("1"));
+        assertTrue(stringMatcher.isLessThanThreeHundred("99"));
+        assertFalse(stringMatcher.isLessThanThreeHundred("300"));
     }
 }
