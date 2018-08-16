@@ -1,6 +1,6 @@
 package be.gestatech.java.se8.regex;
 
-public class StringMatcher {
+public class RegexMatcher {
     
     public boolean isTrue(String inputString) {
         return inputString.matches("true");
